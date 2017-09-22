@@ -1,6 +1,7 @@
 package yasu
 
-import yasu.maze.Maze
+import yasu.maze.MazeFactory
+import yasu.maze.MazeFactory.ViewMaze
 
 /**
  * Mainクラス
@@ -9,12 +10,13 @@ import yasu.maze.Maze
 object Main {
 
   def main(args: Array[String]): Unit = {
-    val mazeField = Maze.generateMaze(13, 13)
+    val mazeField = MazeFactory.createMaze(13, 13)
     drawMaze(mazeField)
   }
 
-  private def drawMaze(field: Array[Array[String]]) {
-    field.foreach(x =>
+  // 迷路の描画
+  private def drawMaze(maze: ViewMaze) {
+    maze.field.foreach(x =>
       println(x.mkString(" "))
     )
   }
