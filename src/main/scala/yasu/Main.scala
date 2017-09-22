@@ -9,8 +9,13 @@ import yasu.maze.Maze
 object Main {
 
   def main(args: Array[String]): Unit = {
-    val maze = new Maze(13, 13)
-    maze.createRandomMaze
-    maze.drawMaze
+    val mazeField = Maze.generateMaze(13, 13)
+    drawMaze(mazeField)
+  }
+
+  private def drawMaze(field: Array[Array[String]]) {
+    field.foreach(x =>
+      println(x.mkString(" "))
+    )
   }
 }
